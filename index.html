@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">TIMOR ART STUDIO</div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#weddings">Weddings</a></li>
+                <li><a href="#family">Family</a></li>
+                <li><a href="#maternity">Maternity</a></li>
+                <li><a href="#newborn">Newborn</a></li>
+                <li><a href="#business">Business</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="gallery">
+        <h2>Your special moments captured authentically</h2>
+        <div class="gallery-container">
+            <img src="photo1.jpg" alt="Wedding">
+            <img src="photo2.jpg" alt="Family">
+            <img src="photo3.jpg" alt="Maternity">
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p>“Highly recommend! We absolutely LOVE our wedding pictures!”</p>
+                <h4></h4>
+            </div>
+            <div class="testimonial">
+                <p>“Amazing photos, very professional and kind!”</p>
+                <h4>Sarah & John</h4>
+            </div>
+            <div class="testimonial">
+                <p>“Captured our family's best moments beautifully!”</p>
+                <h4>Emma & Liam</h4>
+            </div>
+        </div>
+        <button id="prev">❮</button>
+        <button id="next">❯</button>
+    </section>
+    
+    <section class="contact">
+        <h2>Subscribe for updates</h2>
+        <form>
+            <input type="email" placeholder="Your email address">
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <section id="contact">
+    <h2>Contact</h2>
+    <input type="email" placeholder="Your email address">
+    <button>Submit</button>
+
+    <!-- Tambahkan ikon media sosial -->
+    <div class="social-icons">
+        <a href="https://www.instagram.com/vandem.v" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.facebook.com/Vandem" target="_blank">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+    </div>
+</section>
+
+    
+    <footer>
+        <p> TIMOR ART STUDIO </p>
+    </footer>
+    
+    <script>
+        let index = 0;
+        const testimonials = document.querySelectorAll(".testimonial");
+        const prevBtn = document.getElementById("prev");
+        const nextBtn = document.getElementById("next");
+        
+        function showTestimonial(n) {
+            testimonials.forEach((t, i) => {
+                t.style.display = i === n ? "block" : "none";
+            });
+        }
+        
+        prevBtn.addEventListener("click", () => {
+            index = (index - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(index);
+        });
+        
+        nextBtn.addEventListener("click", () => {
+            index = (index + 1) % testimonials.length;
+            showTestimonial(index);
+        });
+        
+        showTestimonial(index);
+    </script>
+</body>
+</html>
